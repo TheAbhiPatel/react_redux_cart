@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { add } from "../store/cartSlice";
 import { fetchProdutcs } from "../store/productSlice";
+import { useDispatch, useSelector } from "../store/hooks";
 
 export interface IProduct {
   id: string;
@@ -12,10 +12,7 @@ export interface IProduct {
 
 const Products = () => {
   const dispatch = useDispatch();
-  // const [productsData, setProductsData] = useState<IProduct[]>([]);
   const { status, data: productsData } = useSelector((state) => state.product);
-  console.log("----------------->");
-  console.log(productsData);
 
   useEffect(() => {
     /** --- Normal way to fetch data --- */

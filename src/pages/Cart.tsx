@@ -1,11 +1,9 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { remove } from "../store/cartSlice";
-import { IProduct } from "../components/Products";
+import { useDispatch, useSelector } from "../store/hooks";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const items: IProduct[] = useSelector((state) => state.cart);
+  const items = useSelector((state) => state.cart);
 
   const handleRemoveProduct = (productId: string) => {
     dispatch(remove(productId));
