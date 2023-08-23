@@ -8,6 +8,8 @@ export interface IProduct {
   title: string;
   price: number;
   image: string;
+  quantity: number;
+  timestamp: number;
 }
 
 const Products = () => {
@@ -27,7 +29,7 @@ const Products = () => {
   }, []);
 
   const handleAddProduct = (product: IProduct) => {
-    dispatch(add(product));
+    dispatch(add({ ...product, quantity: 1 }));
   };
 
   if (status === "LOADING") {
