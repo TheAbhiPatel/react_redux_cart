@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { IProduct } from "../components/Products";
 import { add, decQty, remove } from "../store/cartSlice";
 import { useDispatch, useSelector } from "../store/hooks";
@@ -7,12 +6,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   let items1 = useSelector((state) => state.cart);
   const items = [...items1].sort((a, b) => a.timestamp - b.timestamp);
-  // const [items, setItems] = useState<IProduct[]>(items1);
-  console.log("----------->", items);
-
-  // useEffect(() => {
-  //   setItems((items) => items.sort((a, b) => b.order - a.order));
-  // }, []);
 
   const totalQty = items.reduce((acc, cur) => (acc += cur.quantity), 0);
   const totalPrice = items.reduce(
@@ -32,6 +25,8 @@ const Cart = () => {
       dispatch(decQty(product));
     }
   };
+
+  const handleSaveProduct = (product: IProduct) => {};
 
   return (
     <div>
@@ -72,6 +67,9 @@ const Cart = () => {
               className="btn"
             >
               remove
+            </button>
+            <button onClick={() => handleSaveProduct(item)} className="btn">
+              Save
             </button>
           </div>
         ))}
