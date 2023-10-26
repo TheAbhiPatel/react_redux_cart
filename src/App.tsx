@@ -5,6 +5,7 @@ import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+// import CenterDiv from "./pages/CenterDiv";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
+            {/* <Route path="/center" element={<CenterDiv />} /> */}
           </Routes>
         </BrowserRouter>
       </Provider>

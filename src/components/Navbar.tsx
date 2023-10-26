@@ -3,6 +3,7 @@ import { useSelector } from "../store/hooks";
 
 const Navbar = () => {
   const items = useSelector((state) => state.cart);
+  const totalQty = items.reduce((acc, cur) => (acc += cur.quantity), 0);
   return (
     <div
       style={{
@@ -19,7 +20,7 @@ const Navbar = () => {
         <Link className="navLink" to={"/cart"}>
           Cart
         </Link>
-        <span className="cartCount">Cart items: {items.length}</span>
+        <span className="cartCount">Cart items: {totalQty}</span>
       </div>
     </div>
   );
